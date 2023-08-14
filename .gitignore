@@ -1,6 +1,1 @@
-**/target/
-*iml
-.idea
-*.whl
-build
-*.egg-info
+*DS_Store

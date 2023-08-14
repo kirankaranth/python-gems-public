@@ -1,31 +1,377 @@
-name: Prophecy Provided Python Gems
+name: prophecy-python-gems-base
 description: ''
-version: 0.0.1
-author: rohitjain@prophecy.io
+version: '2.2324'
+author: kshitiz@prophecy.io
 language: python
 buildSystem: ''
 buildSystemDetails:
-  artefactID: python_gems
-  parentArtefactID: prophecy_provided
+  artefactID: prophecypythongemsbase
+  parentArtefactID: ''
   buildSystem: wheel
   author: null
-  createdAt: '2023-07-13 12:46:14'
+  createdAt: '2023-08-10 17:42:47'
 pipelines: {}
 datasets: {}
 templates: {}
 jobs: {}
-gems:
-  gems/Reformat:
-    name: Reformat
-    category: Transform
-    subCategory: ''
-    description: null
-    author: rohitjain+28@simpledatalabs.com
-    mode: batch
-    createdAt: '2023-07-13 12:46:28'
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems:
+    gems/avro:
+      name: avro
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/bigquery:
+      name: bigquery
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/catalogTable:
+      name: catalogTable
+      category: Source/Target
+      subCategory: Database
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/CosmosDB:
+      name: CosmosDB
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/csv:
+      name: csv
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/delta:
+      name: delta
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/fixedformat:
+      name: fixedformat
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/jdbc:
+      name: jdbc
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/json:
+      name: json
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/KafkaStream:
+      name: KafkaStream
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/mongodb:
+      name: mongodb
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/orc:
+      name: orc
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/parquet:
+      name: parquet
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/RandomDataCreator:
+      name: RandomDataCreator
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/redshift:
+      name: redshift
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/salesforce:
+      name: salesforce
+      category: Source/Target
+      subCategory: WebApp
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/snowflake:
+      name: snowflake
+      category: Source/Target
+      subCategory: Warehouse
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/text:
+      name: text
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/xlsx:
+      name: xlsx
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/xml:
+      name: xml
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Aggregate:
+      name: Aggregate
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/CacheOperations:
+      name: CacheOperations
+      category: Custom
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Deduplicate:
+      name: Deduplicate
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/DeltaTableOperations:
+      name: DeltaTableOperations
+      category: Custom
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/FileOperation:
+      name: FileOperation
+      category: Custom
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Filter:
+      name: Filter
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/FlattenSchema:
+      name: FlattenSchema
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Join:
+      name: Join
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Limit:
+      name: Limit
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/OrderBy:
+      name: OrderBy
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Reformat:
+      name: Reformat
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Repartition:
+      name: Repartition
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/RestAPIEnrich:
+      name: RestAPIEnrich
+      category: Custom
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/RowDistributor:
+      name: RowDistributor
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/SchemaTransform:
+      name: SchemaTransform
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/SetOperation:
+      name: SetOperation
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/SQLStatement:
+      name: SQLStatement
+      category: Custom
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/Watermark:
+      name: Watermark
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
+    gems/WindowFunction:
+      name: WindowFunction
+      category: Transform
+      subCategory: ''
+      description: null
+      author: rohitjain+28@simpledatalabs.com
+      mode: batch
+      files: []
+      createdAt: '2023-07-13 12:46:28'
 functions:
   author: null
-  createdAt: '2023-07-13 12:46:14'
+  createdAt: '2023-08-10 17:42:47'
   udfs: {}
   udafs: {}
   expressions: {}

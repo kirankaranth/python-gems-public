@@ -6,6 +6,7 @@ from prophecy.cb.server.base.DatasetBuilderBase import DatasetSpec, DatasetPrope
 from prophecy.cb.server.base.datatypes import SString, SFloat
 from prophecy.cb.ui.uispec import *
 from prophecy.cb.util.NumberUtils import parseFloat
+from prophecy.cb.server.base import WorkflowContext
 
 
 class csv(DatasetSpec):
@@ -67,83 +68,83 @@ class csv(DatasetSpec):
             .addSection(
             "PROPERTIES",
             ColumnsLayout(gap="1rem", height="100%")
-            .addColumn(
+                .addColumn(
                 ScrollBox()
-                .addElement(
-                    StackLayout(height="100%")
                     .addElement(
+                    StackLayout(height="100%")
+                        .addElement(
                         StackItem(grow=1).addElement(
                             FieldPicker(height="100%")
-                            .addField(
+                                .addField(
                                 TextArea("Description", 2, placeholder="Dataset description..."),
                                 "description",
                                 True
                             )
-                            .addField(Checkbox("Use user-defined schema"), "useSchema", True)
-                            .addField(TextBox("Column delimiter").bindPlaceholder("").enableEscapeSequence(),
-                                      "separator")
-                            .addField(Checkbox("First row is header"), "header")
-                            .addField(Checkbox("Infer schema from data"), "inferSchema")
-                            .addField(Checkbox("Parse Multi-line records"), "multiLine")
-                            .addField(TextBox("Encoding Type").bindPlaceholder(""), "encoding")
-                            .addField(TextBox("Quote character").bindPlaceholder(""), "quote")
-                            .addField(TextBox("Escape character").bindPlaceholder(""), "escape")
-                            .addField(
+                                .addField(Checkbox("Use user-defined schema"), "useSchema", True)
+                                .addField(TextBox("Column delimiter").bindPlaceholder("").enableEscapeSequence(),
+                                          "separator")
+                                .addField(Checkbox("First row is header"), "header")
+                                .addField(Checkbox("Infer schema from data"), "inferSchema")
+                                .addField(Checkbox("Parse Multi-line records"), "multiLine")
+                                .addField(TextBox("Encoding Type").bindPlaceholder(""), "encoding")
+                                .addField(TextBox("Quote character").bindPlaceholder(""), "quote")
+                                .addField(TextBox("Escape character").bindPlaceholder(""), "escape")
+                                .addField(
                                 TextBox("Escape char for quote escaping char").bindPlaceholder(""),
                                 "charToEscapeQuoteEscaping"
                             )
-                            .addField(TextBox("Skip line beginning with character").bindPlaceholder(""), "comment")
-                            .addField(Checkbox("Enforce specified or inferred schema"), "enforceSchema")
-                            .addField(TextBox("Sampling Ratio").bindPlaceholder(""), "samplingRatio")
-                            .addField(Checkbox("Ignore leading white spaces from values"),
-                                      "ignoreLeadingWhiteSpaceReading")
-                            .addField(Checkbox("Ignore trailing white spaces from values"),
-                                      "ignoreTrailingWhiteSpaceReading")
-                            .addField(TextBox("Null Value").bindPlaceholder(""), "nullValue")
-                            .addField(TextBox("Empty Value").bindPlaceholder(""), "emptyValue")
-                            .addField(TextBox("String representation for non-number value").bindPlaceholder(""),
-                                      "nanValue")
-                            .addField(TextBox("Positive infinity value").bindPlaceholder(""), "positiveInf")
-                            .addField(TextBox("Negative infinity value").bindPlaceholder(""), "negativeInf")
-                            .addField(TextBox("Date format string").bindPlaceholder(""), "dateFormat")
-                            .addField(TextBox("Timestamp format string").bindPlaceholder(""), "timestampFormat")
-                            .addField(TextBox("Max number of columns per record").bindPlaceholder(""), "maxColumns")
-                            .addField(
+                                .addField(TextBox("Skip line beginning with character").bindPlaceholder(""), "comment")
+                                .addField(Checkbox("Enforce specified or inferred schema"), "enforceSchema")
+                                .addField(TextBox("Sampling Ratio").bindPlaceholder(""), "samplingRatio")
+                                .addField(Checkbox("Ignore leading white spaces from values"),
+                                          "ignoreLeadingWhiteSpaceReading")
+                                .addField(Checkbox("Ignore trailing white spaces from values"),
+                                          "ignoreTrailingWhiteSpaceReading")
+                                .addField(TextBox("Null Value").bindPlaceholder(""), "nullValue")
+                                .addField(TextBox("Empty Value").bindPlaceholder(""), "emptyValue")
+                                .addField(TextBox("String representation for non-number value").bindPlaceholder(""),
+                                          "nanValue")
+                                .addField(TextBox("Positive infinity value").bindPlaceholder(""), "positiveInf")
+                                .addField(TextBox("Negative infinity value").bindPlaceholder(""), "negativeInf")
+                                .addField(TextBox("Date format string").bindPlaceholder(""), "dateFormat")
+                                .addField(TextBox("Timestamp format string").bindPlaceholder(""), "timestampFormat")
+                                .addField(TextBox("Max number of columns per record").bindPlaceholder(""), "maxColumns")
+                                .addField(
                                 TextBox("Allowed maximum characters per column").bindPlaceholder(""),
                                 "maxCharsPerColumn"
                             )
-                            .addField(
+                                .addField(
                                 SelectBox("Corrupt record handling")
-                                .addOption("PERMISSIVE", "permissive")
-                                .addOption("DROPMALFORMED", "dropmalformed")
-                                .addOption("FAILFAST", "failfast"),
+                                    .addOption("PERMISSIVE", "permissive")
+                                    .addOption("DROPMALFORMED", "dropmalformed")
+                                    .addOption("FAILFAST", "failfast"),
                                 "mode"
                             )
-                            .addField(
+                                .addField(
                                 TextBox("Column name of a corrupt record").bindPlaceholder(""),
                                 "columnNameOfCorruptRecord"
                             )
-                            .addField(TextBox("Line Sep").bindPlaceholder(""), "lineSep")
-                            .addField(TextBox("Locale").bindPlaceholder(""), "locale")
-                            .addField(
+                                .addField(TextBox("Line Sep").bindPlaceholder(""), "lineSep")
+                                .addField(TextBox("Locale").bindPlaceholder(""), "locale")
+                                .addField(
                                 SelectBox("Unescaped Quote Handling")
-                                .addOption("STOP_AT_CLOSING_QUOTE", "STOP_AT_CLOSING_QUOTE")
-                                .addOption("BACK_TO_DELIMITER", "BACK_TO_DELIMITER")
-                                .addOption("STOP_AT_DELIMITER", "STOP_AT_DELIMITER")
-                                .addOption("SKIP_VALUE", "SKIP_VALUE")
-                                .addOption("RAISE_ERROR", "RAISE_ERROR"),
+                                    .addOption("STOP_AT_CLOSING_QUOTE", "STOP_AT_CLOSING_QUOTE")
+                                    .addOption("BACK_TO_DELIMITER", "BACK_TO_DELIMITER")
+                                    .addOption("STOP_AT_DELIMITER", "STOP_AT_DELIMITER")
+                                    .addOption("SKIP_VALUE", "SKIP_VALUE")
+                                    .addOption("RAISE_ERROR", "RAISE_ERROR"),
                                 "unescapedQuoteHandling"
                             )
-                            .addField(Checkbox("Recursive File Lookup"), "recursiveFileLookup")
-                            .addField(TextBox("Path Global Filter").bindPlaceholder(""), "pathGlobFilter")
-                            .addField(TextBox("Modified Before").bindPlaceholder(""), "modifiedBefore")
-                            .addField(TextBox("Modified After").bindPlaceholder(""), "modifiedAfter")
+                                .addField(Checkbox("Recursive File Lookup"), "recursiveFileLookup")
+                                .addField(TextBox("Path Global Filter").bindPlaceholder(""), "pathGlobFilter")
+                                .addField(TextBox("Modified Before").bindPlaceholder(""), "modifiedBefore")
+                                .addField(TextBox("Modified After").bindPlaceholder(""), "modifiedAfter")
                         )
                     )
                 ),
                 "auto"
             )
-            .addColumn(SchemaTable("").bindProperty("schema"), "5fr")
+                .addColumn(SchemaTable("").bindProperty("schema"), "5fr")
         ) \
             .addSection(
             "PREVIEW",
@@ -156,72 +157,72 @@ class csv(DatasetSpec):
             .addSection(
             "PROPERTIES",
             ColumnsLayout(gap="1rem", height="100%")
-            .addColumn(
+                .addColumn(
                 ScrollBox().addElement(
                     StackLayout(height="100%").addElement(
                         StackItem(grow=1).addElement(
                             FieldPicker(height="100%")
-                            .addField(
+                                .addField(
                                 TextArea("Description", 2, placeholder="Dataset description..."),
                                 "description",
                                 True
                             )
-                            .addField(
+                                .addField(
                                 SelectBox("Write Mode")
-                                .addOption("error", "error")
-                                .addOption("overwrite", "overwrite")
-                                .addOption("append", "append")
-                                .addOption("ignore", "ignore"),
+                                    .addOption("error", "error")
+                                    .addOption("overwrite", "overwrite")
+                                    .addOption("append", "append")
+                                    .addOption("ignore", "ignore"),
                                 "writeMode"
                             )
-                            .addField(
+                                .addField(
                                 SchemaColumnsDropdown("Partition Columns")
-                                .withMultipleSelection()
-                                .bindSchema("schema")
-                                .bindProperty("partitionColumns"),
+                                    .withMultipleSelection()
+                                    .bindSchema("schema")
+                                    .bindProperty("partitionColumns"),
                                 "partitionColumns"
                             )
-                            .addField(TextBox("Column delimiter").bindPlaceholder("").enableEscapeSequence(),
-                                      "separator")
-                            .addField(Checkbox("First row is header"), "header")
-                            .addField(TextBox("Encoding Type").bindPlaceholder(""), "encoding")
-                            .addField(TextBox("Quote character").bindPlaceholder(""), "quote")
-                            .addField(TextBox("Escape character").bindPlaceholder(""), "escape")
-                            .addField(
+                                .addField(TextBox("Column delimiter").bindPlaceholder("").enableEscapeSequence(),
+                                          "separator")
+                                .addField(Checkbox("First row is header"), "header")
+                                .addField(TextBox("Encoding Type").bindPlaceholder(""), "encoding")
+                                .addField(TextBox("Quote character").bindPlaceholder(""), "quote")
+                                .addField(TextBox("Escape character").bindPlaceholder(""), "escape")
+                                .addField(
                                 TextBox("Escape char for quote escaping char").bindPlaceholder(""),
                                 "charToEscapeQuoteEscaping"
                             )
-                            .addField(TextBox("Null Value").bindPlaceholder(""), "nullValue")
-                            .addField(TextBox("Empty Value").bindPlaceholder(""), "emptyValue")
-                            .addField(
+                                .addField(TextBox("Null Value").bindPlaceholder(""), "nullValue")
+                                .addField(TextBox("Empty Value").bindPlaceholder(""), "emptyValue")
+                                .addField(
                                 SelectBox("Compression")
-                                .addOption("none", "none")
-                                .addOption("bzip2", "bzip2")
-                                .addOption("gzip", "gzip")
-                                .addOption("lz4", "lz4")
-                                .addOption("snappy", "snappy")
-                                .addOption("deflate", "deflate"),
+                                    .addOption("none", "none")
+                                    .addOption("bzip2", "bzip2")
+                                    .addOption("gzip", "gzip")
+                                    .addOption("lz4", "lz4")
+                                    .addOption("snappy", "snappy")
+                                    .addOption("deflate", "deflate"),
                                 "compression"
                             )
-                            .addField(Checkbox("Escape quotes"), "escapeQuotes")
-                            .addField(Checkbox("Quote All"), "quoteAll")
-                            .addField(TextBox("Date format string").bindPlaceholder(""), "dateFormat")
-                            .addField(TextBox("Timestamp format string").bindPlaceholder(""), "timestampFormat")
-                            .addField(Checkbox("Ignore leading white spaces from values"),
-                                      "ignoreLeadingWhiteSpaceWriting")
-                            .addField(Checkbox("Ignore trailing white spaces from values"),
-                                      "ignoreTrailingWhiteSpaceWriting")
-                            .addField(TextBox("Line Sep").bindPlaceholder(""), "lineSep")
+                                .addField(Checkbox("Escape quotes"), "escapeQuotes")
+                                .addField(Checkbox("Quote All"), "quoteAll")
+                                .addField(TextBox("Date format string").bindPlaceholder(""), "dateFormat")
+                                .addField(TextBox("Timestamp format string").bindPlaceholder(""), "timestampFormat")
+                                .addField(Checkbox("Ignore leading white spaces from values"),
+                                          "ignoreLeadingWhiteSpaceWriting")
+                                .addField(Checkbox("Ignore trailing white spaces from values"),
+                                          "ignoreTrailingWhiteSpaceWriting")
+                                .addField(TextBox("Line Sep").bindPlaceholder(""), "lineSep")
                         )
                     )
                 ),
                 "auto"
             )
-            .addColumn(SchemaTable("").isReadOnly().withoutInferSchema().bindProperty("schema"), "5fr")
+                .addColumn(SchemaTable("").isReadOnly().withoutInferSchema().bindProperty("schema"), "5fr")
         )
 
-    def validate(self, component: Component) -> list:
-        diagnostics = super(CsvFormat, self).validate(component)
+    def validate(self, context: WorkflowContext, component: Component) -> list:
+        diagnostics = super(csv, self).validate(context, component)
         if component.properties.separator.diagnosticMessages is not None:
             for message in component.properties.separator.diagnosticMessages:
                 diagnostics.append(
@@ -259,12 +260,12 @@ class csv(DatasetSpec):
                 ))
         return diagnostics
 
-    def onChange(self, oldState: Component, newState: Component) -> Component:
+    def onChange(self, context: WorkflowContext, oldState: Component, newState: Component) -> Component:
         if newState.properties.schema is not None:
             newSchema = newState.properties.schema
             schema = None
             (oldCR, newCR) = (
-                oldState.properties.columnNameOfCorruptRecord, newState.properties.columnNameOfCorruptRecord)
+            oldState.properties.columnNameOfCorruptRecord, newState.properties.columnNameOfCorruptRecord)
             if oldCR is not None and newCR is None:
                 schema = StructType(list(filter(lambda f: f.name != oldCR, newSchema)))
             elif oldCR is None and newCR is not None:
@@ -285,7 +286,7 @@ class csv(DatasetSpec):
 
     class CsvFormatCode(ComponentCode):
         def __init__(self, props):
-            self.props: CsvFormat.CsvProperties = props
+            self.props: csv.CsvProperties = props
 
         def sourceApply(self, spark: SparkSession) -> DataFrame:
 
